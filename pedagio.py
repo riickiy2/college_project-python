@@ -10,8 +10,14 @@ def escolher_veiculo(auto_tipo):
     while True:
         try:
             escolha = int(input("Identifique seu automovel: "))
-            if escolha in auto_tipo:     
-                return auto_tipo[escolha]
+            if escolha in auto_tipo:
+                if escolha == 2:
+                    eixo = int(input("Quantidade de eixos: ")) 
+                    nome, preco = auto_tipo[escolha]   
+                    total_eixo = (eixo * 15) + preco
+                    return nome, total_eixo                 
+                else:
+                    return auto_tipo[escolha]
             else:
                 print("Escolha uma das opções")
             
@@ -53,5 +59,6 @@ veiculos = {
 tudo = escolher_veiculo(veiculos)
 tempo = pegar_horario()
 resultado = calculo_taxa(tudo[0], tudo[1], tempo)
+print("=-" * 15)
 print(resultado)
-
+print("=-" * 15)
